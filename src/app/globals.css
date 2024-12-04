@@ -5,7 +5,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background:  #1a1a1a86;;
     --foreground: #ededed;
   }
 }
@@ -15,6 +15,88 @@ body {
   max-width: 100vw;
   overflow-x: hidden;
 }
+@property --angle{
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.buttons {
+  background-color: #272727;
+  color: #ffffff;
+  border-radius: 6px;
+  border-style: solid;
+  position: relative;
+  flex-wrap: wrap;
+  margin-inline: 0.5em;
+  width: fit-content;
+  height: fit-content;
+  border-color: #272727;
+  margin-top: 6%;
+  --angle: 0deg;
+  font-size: medium;
+  display: inline-block;
+  font-weight: 600;
+  padding: 2%;
+  
+}
+
+@keyframes  spin {
+  from{
+    --angle: 0deg;
+  }
+  to{
+    --angle: 360deg;
+  }
+
+}
+.buttons::after, .buttons::before{
+  content: '';
+  position: absolute;
+  background-image: conic-gradient(from var(--angle),  transparent 60%, #ffffff);
+  height: 100%;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  padding: 3px;
+  margin: 0;
+  border-radius: 6px;
+  animation: 2s spin linear infinite;
+  
+}
+
+.buttons::before {
+  filter: blur(1.5rem);
+  opacity: 0.6;
+}
+.buttons:hover{
+  cursor: pointer;
+  transition: 1s;
+
+}
+
+.buttons:hover::after, .buttons:hover::before{
+ 
+
+  background-image: conic-gradient(from var(--angle),  transparent 60%, #33ff00);
+  z-index: -1;
+  animation: 5s spin linear infinite;
+  cursor: pointer;
+
+}
+
+.buttons#del:hover::after, .buttons#del:hover::before{
+ 
+
+  background-image: conic-gradient(from var(--angle),  transparent 60%, #ff1e00);
+  z-index: -1;
+  animation: 5s spin linear infinite;
+  cursor: pointer;
+
+}
+
 
 body {
   color: var(--foreground);

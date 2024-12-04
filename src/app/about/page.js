@@ -1,9 +1,10 @@
 
-import styles from "./../page.module.css";
-
+import "./../globals.css";
+import Navbar from "../components/sidebar/sidebar";
 export default function Home() {
   return (
-    <div className={styles.page}>
+    <div>
+        <Navbar></Navbar>
         <a>aaaaa</a>
     </div>
   );

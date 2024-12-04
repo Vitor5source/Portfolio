@@ -1,0 +1,28 @@
+.falling {
+    animation: fall 0.35s ease-in forwards; 
+    color: black;
+  }
+.icon-300{
+    font-size: 20px;
+}
+  @keyframes fall {
+    0% {
+      transform: translateX(-10px); 
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5; 
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1; 
+    }
+  }
+  .navbar-menu {
+    background-color: rgba(31, 41, 55, 0); 
+  }
+  ul{
+    display: flex;
+    gap: 2rem; 
+    margin-left: auto; 
+  }
